@@ -1204,7 +1204,6 @@ class LinuxManifest(ViewerManifest):
 
         with self.prefix(src="../plugins", dst="bin/llplugin"):
             self.path2basename("filepicker", "libbasic_plugin_filepicker.so")
-            self.path("gstreamer010/libmedia_plugin_gstreamer010.so", "libmedia_plugin_gstreamer.so")
             self.path("cef/libmedia_plugin_cef.so", "libmedia_plugin_cef.so")
             self.path2basename("libvlc", "libmedia_plugin_libvlc.so")
 
@@ -1266,7 +1265,7 @@ class LinuxManifest(ViewerManifest):
         tempname = self.build_path_of(installer_name)
         self.run_command(["mv", realname, tempname])
         try:
-            # only create tarball if it's a release build.
+             # only create tarball if it's a release build.
             if True:# self.args['buildtype'].lower() == 'release':
                 # --numeric-owner hides the username of the builder for
                 # security etc.
@@ -1276,6 +1275,7 @@ class LinuxManifest(ViewerManifest):
             else:
                 print "Skipping %s.tar.xz for non-Release build (%s)" % \
                       (installer_name, self.args['buildtype'])
+
         finally:
             self.run_command(["mv", tempname, realname])
 

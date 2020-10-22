@@ -7,7 +7,6 @@ add_subdirectory(base_media)
 add_subdirectory(filepicker)
 
 if (LINUX)
-    add_subdirectory(gstreamer010)
 endif (LINUX)
 
 if (WINDOWS)

@@ -1719,7 +1719,6 @@ if (LINUX)
   set(COPY_INPUT_DEPENDENCIES
     ${VIEWER_BINARY_NAME}
     SLPlugin
-    media_plugin_gstreamer010
     llcommon
     )
 
@@ -1771,7 +1770,7 @@ if (LINUX)
     COMMENT "Performing viewer_manifest copy"
       )
 
-  add_dependencies(${VIEWER_BINARY_NAME} SLPlugin media_plugin_gstreamer010 basic_plugin_filepicker)
+  add_dependencies(${VIEWER_BINARY_NAME} SLPlugin basic_plugin_filepicker)
 
   if (PACKAGE)
     add_custom_target(llpackage ALL DEPENDS ${product}.tar.xz)
@@ -1879,8 +1878,6 @@ if (FALSE)
     list(APPEND SYMBOL_SEARCH_DIRS "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}")
     # *TODO: Generate these search dirs in the cmake files related to each binary.
     list(APPEND SYMBOL_SEARCH_DIRS "${CMAKE_BINARY_DIR}/llplugin/slplugin/${CMAKE_CFG_INTDIR}")
-    list(APPEND SYMBOL_SEARCH_DIRS "${CMAKE_BINARY_DIR}/plugins/gstreamer010/${CMAKE_CFG_INTDIR}")
-    list(APPEND SYMBOL_SEARCH_DIRS "${CMAKE_BINARY_DIR}/plugins/quicktime/${CMAKE_CFG_INTDIR}")
     list(APPEND SYMBOL_SEARCH_DIRS "${CMAKE_BINARY_DIR}/plugins/webkit/${CMAKE_CFG_INTDIR}")
     set(VIEWER_SYMBOL_FILE "${SYMBOL_NAME}-darwin.tar.bz2")
     set(VIEWER_EXE_GLOBS "'${VIEWER_BRANDING_NAME}' SLPlugin")
